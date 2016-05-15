@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+
+    <style>
+      circle.dimple-series-1 {
+        fill: red;
+      }
+
+      h2 {
+        text-align: center;
+      }
+    </style>
+
+    <script type="text/javascript">
+      function draw(data) {
+
+      /*
+        D3.js setup code
+      */
+
+          "use strict";
+          var margin = 75,
+              width = 1400 - margin,
+              height = 600 - margin;
+
+          d3.select("body")
+            .append("h2")
+            .text("Baseball Statistics")
+
+          var svg = d3.select("body")
+            .append("svg")
+              .attr("width", width + margin)
+              .attr("height", height + margin)
+            .append('g')
+                .attr('class','chart');
+
+          var svg1 = d3.select("body")
+                  .append("svg")
+                    .attr("width", width + margin)
+                    .attr("height", height + margin)
+                  .append('g')
+                      .attr('class','chart');
+
+      /*
+        Dimple.js Chart construction code
+      */
+
+          var myChart = new dimple.chart(svg, data);
+          var x = myChart.addCategoryAxis("x", "height");
+          var y  = myChart.addMeasureAxis("y", "avg");
+          myChart.addMeasureAxis("z", "HR");
+
+          x.overrideMin = 65;
+          x.overrideMax = 81;
+
+          y.tickFormat = 0.01;
+          y.overrideMin=0.14;
+          var series = myChart.addSeries("handedness", dimple.plot.bubble);
+          series.aggregate = dimple.aggregateMethod.avg;
+          myChart.addLegend(60, 10, 1000, 20, "right");
+          myChart.draw();
+
+
+          var weightChart = new dimple.chart(svg1, data);
+          var x = weightChart.addCategoryAxis("x", ["height","handedness"]);
+          var y  = weightChart.addMeasureAxis("y", "HR");
+
+
+          x.overrideMin = 65;
+          x.overrideMax = 81;
+
+          y.tickFormat = 50;
+          y.overrideMin=0;
+
+          var series = weightChart.addSeries("handedness", dimple.plot.bar);
+          series.aggregate = dimple.aggregateMethod.avg;
+          weightChart.addLegend(60, 10, 1000, 20, "right");
+          weightChart.draw();
+
+
+        };
+
+    </script>
+  </head>
+<body>
+  <script type="text/javascript">
+
+  d3.csv("baseball_data.csv", draw);
+  </script>
+</body>
+</html>
