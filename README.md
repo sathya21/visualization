@@ -1,8 +1,8 @@
 # visualization
-Summary
+#Summary
 This visualization is about baseball players statistics. It explores different handedness, height, weight and their relationship with HR and average.First visualization explores the relationship between height, Average and HR for different handedness. Second visualization explores the relationship between height and HR average for different handedness. Third visualization provides distribution of data points for various heights.
 
-Design Choices
+#Design Choices
 
 1) I decided to explore the relationship between handedness, average and their HR. Since it has 3 variables, based on the grammar of graphics, i used Scatter plot for the visualization.
 
@@ -10,7 +10,7 @@ Design Choices
 
 3) I also wanted to show the distribution of data points for the height and handedness as it will help to ignore categories that have fewer data points.
 
-Feedback
+#Feedback
 
 Feedback 1 ( Myles)
 
