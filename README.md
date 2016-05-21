@@ -12,9 +12,9 @@ This visualization is about baseball players statistics. It explores different h
 
 #Feedback
 
-Feedback 1 ( Myles)
+#Feedback 1 ( Myles)
 
-What I noticed (combined with relationships that I noticed):
+a)What I noticed (combined with relationships that I noticed):
 
 I noticed that there is a relatively smooth negative relationship between batting average and height for Left and Both handedness (which was unexpected), and no apparent relationship for Right handers
 
@@ -23,7 +23,7 @@ I noticed that there is a positive relationship between home runs and height for
 Finally, I noticed that there is a symmetric distribution of heights, for all handedness, amongst baseball players - which is amazingly consistent between groups.
 
 
-What questions I have about the data:
+b)What questions I have about the data:
 
 Too many to list. There was no description of the dataset, so I don't know who it covers (it is obviously not for little league, because there are no 11 year olds that are 6'7'' but beyond that, I don't know anything about the data. One or two lines about the dataset would help) .
 
@@ -31,12 +31,13 @@ I know enough about baseball to guess what "average", "B", "L", and "R" etc mean
 
 Apart from the lack of descriptions, overall it is a very clear presentation of the information that it is intended to convey.
 
-Is there something you don’t understand in the graphic?:
+c)Is there something you don’t understand in the graphic?:
 
 No, as I say, I understand enough about baseball to guess what each part of the visualization refers to.
 Overall, a very nice job!!
 
 
 Resources
-http://extremepresentation.typepad.com/files/choosing-a-good-chart-09.pdf
-http://dimplejs.org/
+1)http://extremepresentation.typepad.com/files/choosing-a-good-chart-09.pdf
+
+2)http://dimplejs.org/
