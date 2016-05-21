@@ -10,6 +10,9 @@ This visualization is about baseball players statistics. It explores different h
 
 3) I also wanted to show the distribution of data points for the height and handedness as it will help to ignore categories that have fewer data points.
 
+4) Updated the document and description based on Myles Feedback
+https://discussions.udacity.com/t/project-feedback-on-baseball-dataset/168660
+
 #Feedback
 
 #Feedback 1 ( Myles)
