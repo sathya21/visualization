@@ -38,6 +38,7 @@ Overall, a very nice job!!
 
 
 Resources
+
 1)http://extremepresentation.typepad.com/files/choosing-a-good-chart-09.pdf
 
 2)http://dimplejs.org/
