@@ -15,7 +15,7 @@ https://discussions.udacity.com/t/project-feedback-on-baseball-dataset/168660
 
 #Feedback
 
-#Feedback 1 ( Myles)
+#Feedback 1
 
 a)What I noticed (combined with relationships that I noticed):
 
@@ -38,6 +38,19 @@ c)Is there something you don’t understand in the graphic?:
 
 No, as I say, I understand enough about baseball to guess what each part of the visualization refers to.
 Overall, a very nice job!!
+
+#Feedback 2
+
+a)Is there something you don’t understand in the graphic?
+
+Explain about the outlier data on each graph than data distribution at the end
+
+
+#Feedback 3
+What do you notice in the visualization?
+
+HR relationship hasn't been discussed in the first visualization though it is depicted
+
 
 
 Resources

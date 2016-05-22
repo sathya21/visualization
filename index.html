@@ -1,160 +1,104 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
-
-    <style>
-
-      h2 {
-        text-align: center;
-      }
-    </style>
-
-    <script type="text/javascript">
+   <head>
+      <meta charset="utf-8">
+      <script src="http://d3js.org/d3.v3.min.js"></script>
+      <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+      <style>
+         h2 {
+         text-align: center;
+         }
+      </style>
+      <script type="text/javascript">
       function draw(data) {
-
-      /*
-        D3.js setup code
-      */
-
           "use strict";
           var margin = 75,
               width = 1400 - margin,
               height = 600 - margin;
 
           d3.select("body")
-            .append("h1")
-            .text("Baseball Statistics")
+              .append("h1")
+              .text("Baseball Statistics");
 
           d3.select("body")
-                .append("h2")
-                .text("Description about data: ")
+              .append("h2")
+              .text("Description about data: ");
 
           d3.select("body")
-                  .append("p")
-                  .text(" This visualization is about baseball players statistics. It compares the baseball players height , handedness to their average and HR")
-
-          d3.select("body")
-                  .append("p")
-                  .text(" Acronyms used : B - Both, L - Left, R - Right, avg - average")
-
-
-
-          d3.select("body")
-            .append("h2")
-            .text("Relationship between Height, Average and HR")
-
-        d3.select("body")
               .append("p")
-              .text("From this overall data, Left handers tend to have slightly better average than others with similar heights.  There seems to be a negative relationship between height of the baseball player and their average for Left and Both handedness.Same is not visible for other other handedness")
+              .text(" This visualization is about baseball players statistics. It compares the baseball players height , handedness to their average and HR");
 
+          d3.select("body")
+              .append("p")
+              .text(" Acronyms used : B - Both, L - Left, R - Right, avg - average");
+
+          d3.select("body")
+              .append("h2")
+              .text("Relationship between Height, Average and HR");
+
+          d3.select("body")
+              .append("p")
+              .text("From this overall data, Left handers tend to have slightly better average than others with similar heights. Average HR increases as the height increases. There isn't enough data between 65-68 and 77 to 80, hence it is not used for inference. ");
+
+          // Adds a svg for chart
           var svg = d3.select("body")
-            .append("svg")
+              .append("svg")
               .attr("width", width + margin)
               .attr("height", height + margin)
-            .append('g')
-                .attr('class','chart');
+              .append('g')
+              .attr('class', 'chart');
 
-         d3.select("body")
-            .append("h2")
-               .text("Relationship between Height  HR Average")
+          d3.select("body")
+              .append("h2")
+              .text("Relationship between Height  HR Average");
 
-         d3.select("body")
-               .append("p")
-               .text("From this overall data, Left handers tend to have  better HR than othes with similar height in most of the height group.Also, Number of HR improves as the height increases except for the players with 67 height")
+          d3.select("body")
+              .append("p")
+              .text("From this overall data, Left handers tend to have  better HR than othes with similar height in most of the height group.Also, Number of HR improves as the height increases except for the players with 67 height.There isn't enough data between 65-68 and 77 to 80, hence it is not used for inference. ");
 
+          // Adds a svg for chart
           var svg1 = d3.select("body")
-                  .append("svg")
-                    .attr("width", width + margin)
-                    .attr("height", height + margin)
-                  .append('g')
-                      .attr('class','chart');
-
-          d3.select("body")
-             .append("h2")
-                .text("Distribution of datapoints for various heights")
-
-          d3.select("body")
-                .append("p")
-                .text("There seems to be a symmetrical distribution in height for all handedness. Heights 65 to 69 and beyond 76 doesn't have enough data")
+              .append("svg")
+              .attr("width", width + margin)
+              .attr("height", height + margin)
+              .append('g')
+              .attr('class', 'chart');
 
 
-
-        var svg2 = d3.select("body")
-                  .append("svg")
-                    .attr("width", width + margin)
-                    .attr("height", height + margin)
-                  .append('g')
-                    .attr('class','chart');
-
-      /*
-        Dimple.js Chart construction code
-      */
-
+          // This code block plots a bubble chart for the relationship between height, average and HR for different handedness
           var myChart = new dimple.chart(svg, data);
           var x = myChart.addCategoryAxis("x", "height");
-          var y  = myChart.addMeasureAxis("y", "avg");
+          var y = myChart.addMeasureAxis("y", "avg");
           myChart.addMeasureAxis("z", "HR");
-
           x.overrideMin = 65;
           x.overrideMax = 81;
-
           y.tickFormat = 0.01;
-          y.overrideMin=0.14;
+          y.overrideMin = 0.14;
           var series = myChart.addSeries("handedness", dimple.plot.bubble);
           series.aggregate = dimple.aggregateMethod.avg;
-          //series.addEventHandler("click", onClick);
-
           myChart.addLegend(60, 10, 1000, 20, "right");
-
           myChart.draw();
 
 
-
+          // This code block plots a bar chart for the relationship between height,handedness,  HR average
           var hrHeightChart = new dimple.chart(svg1, data);
-          var x = hrHeightChart.addCategoryAxis("x", ["height","handedness"]);
-          var y  = hrHeightChart.addMeasureAxis("y", "HR");
-
-
+          var x = hrHeightChart.addCategoryAxis("x", ["height", "handedness"]);
+          var y = hrHeightChart.addMeasureAxis("y", "HR");
           x.overrideMin = 65;
           x.overrideMax = 81;
-
           y.tickFormat = 50;
-          y.overrideMin=0;
-
+          y.overrideMin = 0;
           var series = hrHeightChart.addSeries("handedness", dimple.plot.bar);
           series.aggregate = dimple.aggregateMethod.avg;
           hrHeightChart.addLegend(60, 10, 1000, 20, "right");
           hrHeightChart.draw();
 
-
-          var hrHeightCountChart = new dimple.chart(svg2, data);
-          var x = hrHeightCountChart.addCategoryAxis("x", ["height","handedness"]);
-          var y  = hrHeightCountChart.addMeasureAxis("y", "HR");
-
-
-          x.overrideMin = 65;
-          x.overrideMax = 81;
-
-          y.tickFormat = 50;
-          y.overrideMin=0;
-
-          var series = hrHeightCountChart.addSeries("handedness", dimple.plot.bar);
-          series.aggregate = dimple.aggregateMethod.count;
-          hrHeightCountChart.addLegend(60, 10, 1000, 20, "right");
-          hrHeightCountChart.draw();
-
-
-        };
-
-    </script>
-  </head>
-<body>
-  <script type="text/javascript">
-
-  d3.csv("baseball_data.csv", draw);
+      };
   </script>
-</body>
+   </head>
+   <body>
+      <script type="text/javascript">
+         d3.csv("baseball_data.csv", draw);
+      </script>
+   </body>
 </html>
